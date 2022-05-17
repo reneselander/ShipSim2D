@@ -30,42 +30,41 @@ int main()
 	
 
 	while (window.isOpen())
+	
 	{
+
 		while (window.pollEvent(event))
+		
 		{
+		
 			if (event.type == sf::Event::Closed)
+			
 				window.close();
 
 			if (event.type == sf::Event::KeyPressed)
+				
 				player.processEvents(event.key.code, true);
 
 			if (event.type == sf::Event::KeyReleased)
+				
 				player.processEvents(event.key.code, false);
+
 			if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape))
+				
 				window.close();
-
-			
-
-			
-			
+		
 		}
+
 		window.clear(sf::Color(135, 206, 250, 0.2));
+		
 		player.update();
+		
 		window.draw(rect);
+		
 		player.drawTo(window);
+		
 		window.display();
+	
 	}
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
