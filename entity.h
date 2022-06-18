@@ -1,19 +1,33 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+
+
+
 class entity
 {
 public:
 	entity(float x, float y)
 	{
-		rect.setFillColor(sf::Color(112, 130, 56));
+		/*ship.setFillColor(sf::Color(112, 130, 56));
 		//sf::Vector2f(x, y)
-		rect.setSize(sf::Vector2f(180, 80));
+		ship.setSize(sf::Vector2f(100, 40));*/
+
+		ship.setRadius(30.f);
+		ship.setPointCount(3);
+		ship.setFillColor(sf::Color::White);
+		ship.setOutlineThickness(4.f);
+		ship.setOutlineColor(sf::Color::Black);
+		ship.setRotation(90.0);
+		
 		up = false;
 		down = false;
 		left = false;
 		right = false;
 	}
+
+
+
 
 	void processEvents(sf::Keyboard::Key key, bool checkPressed)
 	{
@@ -51,16 +65,16 @@ public:
 			movement.x -= 1.0f;
 		if (right)
 			movement.x += 1.0f;
-		rect.move(movement);
+		ship.move(movement);
 
 	}
 
 	void drawTo(sf::RenderWindow &window)
 	{
-		window.draw(rect);
+		window.draw(ship);
 	}
 private:
-	sf::RectangleShape rect;
+	sf::CircleShape ship;
 	bool up;
 	bool down;
 	bool left;

@@ -1,5 +1,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
+#include <SFML/System.hpp>
 
 #include "entity.h"
 
@@ -7,25 +9,26 @@ int main()
 
 {
 
+
 	sf::RenderWindow window(sf::VideoMode(1200, 1080), "Ship Sim V 0.2.2.6", sf::Style::Default);
 
 	window.setFramerateLimit(60);
 
 	sf::Event event;
 
-	//window.getSize().x/4, window.getSize().y/4
+	// Startpositionen för fartyget
 	entity player(window.getSize().x / 4, window.getSize().y / 4);
 
 	// Skapa en holme
-	sf::RectangleShape rect;
-	rect.setFillColor(sf::Color(0, 153, 76));
+	sf::RectangleShape holme1;
+	holme1.setFillColor(sf::Color(0, 153, 76));
 
-	// Bestäm storleken på box 1, i pixlar
-	rect.setSize(sf::Vector2f(60, 60));
+	// Bestäm storleken på holme 1, i pixlar
+	holme1.setSize(sf::Vector2f(60, 60));
 
-	// Skapa start-positionen för box 1, 
+	// Skapa start-positionen för holme 1, 
 	sf::Vector2f rectanglePosition(300, 300);
-	rect.setPosition(rectanglePosition);
+	holme1.setPosition(rectanglePosition);
 
 
 	sf::RectangleShape holme2;
@@ -37,6 +40,16 @@ int main()
 	// Skapa start-positionen för holme 2, 
 	sf::Vector2f rectanglePosition2(600, 500);
 	holme2.setPosition(rectanglePosition2);
+
+	sf::RectangleShape holme3;
+	holme3.setFillColor(sf::Color(0, 182, 0));
+
+	// Bestäm storleken på holme 2, i pixlar
+	holme3.setSize(sf::Vector2f(40, 30));
+
+	// Skapa start-positionen för holme 2, 
+	sf::Vector2f holmePosition3(700, 100);
+	holme3.setPosition(holmePosition3);
 	
 
 	while (window.isOpen())
@@ -67,11 +80,13 @@ int main()
 
 		window.clear(sf::Color(135, 206, 250, 0.2));
 		
+		
 		player.update();
-		
-		window.draw(rect);
+		window.draw(holme1);
 		window.draw(holme2);
-		
+		window.draw(holme3);
+
+
 		player.drawTo(window);
 		
 		window.display();
