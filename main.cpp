@@ -27,6 +27,16 @@ int main()
 	sf::Vector2f rectanglePosition(300, 300);
 	rect.setPosition(rectanglePosition);
 
+
+	sf::RectangleShape holme2;
+	holme2.setFillColor(sf::Color(0, 102, 0));
+
+	// Bestäm storleken på holme 2, i pixlar
+	holme2.setSize(sf::Vector2f(40, 40));
+
+	// Skapa start-positionen för holme 2, 
+	sf::Vector2f rectanglePosition2(600, 500);
+	holme2.setPosition(rectanglePosition2);
 	
 
 	while (window.isOpen())
@@ -60,6 +70,7 @@ int main()
 		player.update();
 		
 		window.draw(rect);
+		window.draw(holme2);
 		
 		player.drawTo(window);
 		
