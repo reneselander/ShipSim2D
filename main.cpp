@@ -7,7 +7,7 @@ int main()
 
 {
 
-	sf::RenderWindow window(sf::VideoMode(1200, 1080), "Ship Sim V 0.2.2.4", sf::Style::Default);
+	sf::RenderWindow window(sf::VideoMode(1200, 1080), "Ship Sim V 0.2.2.6", sf::Style::Default);
 
 	window.setFramerateLimit(60);
 
